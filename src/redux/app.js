@@ -1,0 +1,86 @@
+
+import React, {Component} from 'react'
+import {render} from 'react-dom'
+import {createStore} from 'redux'
+
+// type
+const ADD_TODO = 'ADD_TODO'
+const DES_TODO = 'DES_TODO'
+
+// action
+const action = {
+	addTodo: () => {
+		return {
+			type: 'ADD_TODO'			
+		}
+	},
+	desTodo: () => {
+		return {
+			type: 'DES_TODO'
+		}
+	}	
+}
+
+// reducer
+const reducer = (state = 1, action) => {
+	switch (action.type) {
+		case 'ADD_TODO':
+			return state + 1
+
+		case 'DES_TODO':
+			return state - 1
+
+		default:
+			return state
+	}
+}
+
+// store
+const store = createStore(reducer)
+
+// container
+class Counter extends Component {
+	constructor(props) {
+		super(props)		
+	}
+
+	onAdd() {
+		console.log('ADD_TODO')
+		store.dispatch({type: 'ADD_TODO'})
+	}
+	onDes() {
+		console.log('DES_TODO')
+		store.dispatch({type: 'DES_TODO'})
+	}
+
+	render() {		
+		return <CounterItem value={store.getState()} onAdd={this.onAdd} onDes={this.onDes} />
+	}
+}
+
+// component
+const CounterItem = ({value, onAdd, onDes}) => (
+	<div>
+		<h1>{value}</h1>
+		<div className="add" onClick={onAdd}>ADD</div>
+		<div className="dec" onClick={onDes}>DES</div>
+	</div>
+)
+
+// render
+const Render = () => {
+		render(
+			<Counter />,
+			document.getElementById('root')
+		)
+}
+Render()
+store.subscribe(Render)
+
+
+
+
+
+
+
+
