@@ -1,11 +1,12 @@
 
 import React, {Component} from 'react'
 import {render} from 'react-dom'
-import {createStore} from 'redux'
+import {createStore, combineReducers} from 'redux'
 
 // type
 const ADD_TODO = 'ADD_TODO'
 const DES_TODO = 'DES_TODO'
+const SET_NAME = 'SET_NAME'
 
 // action
 const action = {
@@ -22,7 +23,7 @@ const action = {
 }
 
 // reducer
-const reducer = (state = 1, action) => {
+const calcReducer = (state = 1, action) => {
 	switch (action.type) {
 		case 'ADD_TODO':
 			return state + 1
@@ -34,9 +35,21 @@ const reducer = (state = 1, action) => {
 			return state
 	}
 }
+const userReducer = (state = 'shemei', action) => {
+	switch (action.type) {
+		case 'SET_NAME':
+			return state
+		default:
+			return state
+	}
+}
+const Reducer = combineReducers({
+	calcReducer,
+	userReducer
+})
 
 // store
-const store = createStore(reducer)
+const store = createStore(Reducer)
 
 // container
 class Counter extends Component {
@@ -54,7 +67,8 @@ class Counter extends Component {
 	}
 
 	render() {		
-		return <CounterItem value={store.getState()} onAdd={this.onAdd} onDes={this.onDes} />
+		const {calcReducer} = store.getState()
+		return <CounterItem value={calcReducer} onAdd={this.onAdd} onDes={this.onDes} />
 	}
 }
 
@@ -76,6 +90,25 @@ const Render = () => {
 }
 Render()
 store.subscribe(Render)
+
+// const createStore = (reducer) => {
+// 	let state
+// 	let listeners = []
+
+// 	const getState = () => state
+
+// 	const dispatch = (action) => {
+// 		state = reducer(state, action)
+// 		listeners.forEach(l => l())
+// 	}
+
+// 	const subscribe = (listener) => {
+// 		listeners.push(listener)
+// 		return () => {
+// 			listeners = listeners.filter(l => l !== listener)
+// 		}
+// 	}
+// }
 
 
 
