@@ -42,6 +42,9 @@ const action = {
 	hideTodo: () => {
 		// promiseMiddleware 用法2 通过createAction创建标准的flux action ，然后检查payload是否是promise
 		return createAction('HIDE_TODO')(fetchData.then(res => res.data))
+	},
+	searchTodo: () => {
+		
 	}
 }
 
@@ -58,6 +61,9 @@ const calcReducer = (state = 1, action) => {
 			return state
 
 		case 'HIDE_TODO':
+			return state
+
+		case 'SEARCH_TODO':
 			return state
 
 		default:
@@ -116,20 +122,26 @@ class Counter extends Component {
 		store.dispatch(action.hideTodo())
 	}
 
+	onSearch() {
+		console.log('SEARCH_TODO')
+		store.dispatch(action.searchTodo())
+	}	
+
 	render() {
 		const {calcReducer} = store.getState()
-		return <CounterItem value={calcReducer} onAdd={this.onAdd} onDes={this.onDes} onShow={this.onShow} onHide={this.onHide} />
+		return <CounterItem value={calcReducer} onAdd={this.onAdd} onDes={this.onDes} onShow={this.onShow} onHide={this.onHide} onSearch={this.onSearch} />
 	}
 }
 
 // component
-const CounterItem = ({value, onAdd, onDes, onShow, onHide}) => (
+const CounterItem = ({value, onAdd, onDes, onShow, onHide, onSearch}) => (
 	<div>
 		<h1>{value}</h1>
 		<div className="add" onClick={onAdd}>ADD</div>
 		<div className="dec" onClick={onDes}>DES</div>
 		<div className="show" onClick={onShow}>SHOW</div>
 		<div className="hide" onClick={onHide}>HIDE</div>
+		<div className="search" onClick={onSearch}>SEARCH</div>
 	</div>
 )
 
