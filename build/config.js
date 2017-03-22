@@ -12,6 +12,9 @@ module.exports = {
     // 
     entries: {
         // test: './src/meal/app.js'
+        redux: './src/redux/app.js',
+        redux2: './src/redux/app2.js',
+        redux3: './src/redux/app3.js'
     },
 
     server: {
