@@ -5,13 +5,15 @@ import promiseMiddleware from 'redux-promise'
 import createLogger from 'redux-logger'
 import Reducer from '../reducers'
 
-const store = createStore(
-	Reducer,
-	applyMiddleware(
-		thunk, 
-		promiseMiddleware,
-		createLogger()
-	)
-)
+const configureStore = () => {
+	 return createStore(
+		Reducer,
+		applyMiddleware(
+			thunk, 
+			promiseMiddleware,
+			createLogger()
+		)
+	)	
+}
 
-export default store
+export default configureStore

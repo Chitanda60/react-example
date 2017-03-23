@@ -4,9 +4,10 @@ import {render} from 'react-dom'
 import {Provider} from 'react-redux'
 import {Router, browserHistory} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
-import store from './store'
+import configureStore from './store'
 import routes from './routes'
 
+const store = configureStore()
 const history = syncHistoryWithStore(browserHistory, store)
 
 const Root = ({store, history}) => (
