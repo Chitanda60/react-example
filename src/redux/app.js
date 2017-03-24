@@ -22,7 +22,7 @@ const fetchData = new Promise((resolve, reject) => {
 })
 
 const action = {
-	addTodo: () => (dispatch, getState) => { 
+	addTodo: () => (dispatch, getState) => {
 		dispatch({ type: 'ADD_TODO' }) 
 	},
 	desTodo: () => {
