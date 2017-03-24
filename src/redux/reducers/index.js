@@ -11,3 +11,11 @@ const Reducer = combineReducers({
 })
 
 export default Reducer
+
+// routerReducer
+const initialState = {locationBeforeTransitions: null}
+const routerReducer = (state = initialState, {type, payload} = {}) => {
+	if (type = 'LOCATION_CHANGE') {
+		return {...state, locationBeforeTransitions: payload}
+	}
+}
