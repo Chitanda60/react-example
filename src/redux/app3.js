@@ -22,8 +22,11 @@ render(
 )
 
 // history.push -> store.dispatch -> enhancedHistory.listen -> router
+// 
+// 先将lcoation作为state 和 routeReducer 存入store 每次push时触发dispatch一个type=LOCATION_CHANGE的action生产用以新的state
+// 
 // const defaultSelectLocationState = state => state.routing
-// // 将history的变化同步到state上
+// // 将history的变化同步到state上 syncHistoryWithStore修改了history.listen
 // const syncHistoryWithStore = (history, store, {selectLocationState = defaultSelectLocationState} = {}) => {
 // 	const getLocationInStore = () => {
 // 		const locationState = selectLocationState(store.getState())

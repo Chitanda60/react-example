@@ -39,8 +39,13 @@ class CounterComponent extends Component {
 		this.props.searchTodo()
 	}
 
+	onLink() {
+		console.log(this.props)
+		this.props.router.push('/user')
+	}
+
 	render() {
-		return <CounterItem value={this.props.calcReducer} onAdd={::this.onAdd} onDes={::this.onDes} onShow={::this.onShow} onHide={::this.onHide} onSearch={::this.onSearch} />
+		return <CounterItem value={this.props.calcReducer} onAdd={::this.onAdd} onDes={::this.onDes} onShow={::this.onShow} onHide={::this.onHide} onSearch={::this.onSearch} onLink={::this.onLink} />
 	}
 }
 // 内部执行订阅 即输入逻辑

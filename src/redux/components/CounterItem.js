@@ -1,5 +1,5 @@
 
-const CounterItem = ({value, onAdd, onDes, onShow, onHide, onSearch}) => (
+const CounterItem = ({value, onAdd, onDes, onShow, onHide, onSearch, onLink}) => (
 	<div>
 		<h1>{value}</h1>
 		<div className="add" onClick={onAdd}>ADD</div>
@@ -7,6 +7,7 @@ const CounterItem = ({value, onAdd, onDes, onShow, onHide, onSearch}) => (
 		<div className="show" onClick={onShow}>SHOW</div>
 		<div className="hide" onClick={onHide}>HIDE</div>
 		<div className="search" onClick={onSearch}>SEARCH</div>
+		<div className="link" onClick={onLink}>LINK</div>
 	</div>
 )
 
