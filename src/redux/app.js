@@ -181,6 +181,7 @@ store.subscribe(Render)
 // 		var store = createStore(reducer, preloadedState, enhancer)
 // 		var dispatch = store.dispatch
 // 		var chain = []
+// 		//供各middleware公用
 // 		var middlewareAPI = {
 // 			getState: store.getState,
 // 			dispatch: (action) => dispatch(action)
