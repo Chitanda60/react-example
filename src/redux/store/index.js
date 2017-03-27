@@ -13,7 +13,7 @@ import Reducer from '../reducers'
 // 			applyMiddleware(thunk, promiseMiddleware, createLogger()),
 // 			DevTools.instrument()
 // 		)		
-// 	)	
+// 	)
 // }
 
 const configureStore = () => {
