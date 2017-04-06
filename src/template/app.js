@@ -10,6 +10,8 @@ import { Router, Route, hashHistory } from 'react-router';
 
 import Home from './modules/home';
 import Template from './modules/template';
+import Animation from './modules/animation';
+import Update from './modules/update';
 
 class App extends Component {
     render() {
@@ -17,6 +19,8 @@ class App extends Component {
             <Router history={hashHistory}>
                 <Route path="/" component={Home} />
                 <Route path="/template" component={Template} />
+                <Route path="/animation" component={Animation} />
+                <Route path="/update" component={Update} />
             </Router>
         )
     }

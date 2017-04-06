@@ -29,7 +29,7 @@ module.exports = {
     },
 
     alias : {
-      '~base':  path.join(__dirname, '../src/base')
+      '~base':  path.join(__dirname, '../src/base'),
     },
 
     // 全局引用

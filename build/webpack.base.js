@@ -62,13 +62,15 @@ module.exports = {
     }]
   },
 
-  babel: {
-    presets: ['stage-0', 'es2015', 'react']
+  devtool: 'inline-source-map',
+
+  babel: {    
+    plugins: ['transform-class-properties']
   },
 
   externals: {
     'react': 'React',
-    'react-dom': 'ReactDOM'
+    'react-dom': 'ReactDOM',
   },
   
   resolve: {
