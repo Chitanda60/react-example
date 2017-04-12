@@ -13,8 +13,11 @@ const calcReducer = (state = 1, action) => {
 		case 'HIDE_TODO':
 			return state
 
-		case 'SEARCH_TODO':
+		case 'SEARCH_TODO_1':
 			return state
+
+		case 'SEARCH_TODO_2':
+			return 2
 
 		default:
 			return state

@@ -206,6 +206,7 @@ store.subscribe(Render)
 // 	return (...args) => rest.reduceRight((composed, f) => f(composed), last(...args))
 // }
 
+// functional action
 // const createThunkMiddleware = (extraArgument) => {
 // 	// {dispatch, getState} 在applyMiddleware中传入
 // 	// next 在compose中传入，就是下一个middleware
@@ -220,5 +221,29 @@ store.subscribe(Render)
 // const thunk = createThunkMiddleware()
 // thunk.withExtraArgument = createThunkMiddleware
 
+// 异步串联
+// const sequenceMiddleware = ({dispatch, getState}) => next => action => {
+// 	if(!Array.isArray(action)) {
+// 		return next(action);
+// 	}
 
+// 	return action.reduce((result, currAction) => {		
+// 		return result.then(() => {
+// 			if (!currAction) { 
+// 				return Promise.resolve(); 
+// 			}
 
+// 			return Array.isArray(currAction) ? 
+// 				Promise.all(currAction.map(item => dispatch(item))) : dispatch(currAction);
+// 		});
+// 	}, Promise.resolve());
+// }
+// // 例子action
+// const loadDataAction = () => {
+// 	return [
+// 		getCityAction(),		
+// 		(dispatch, state) => {
+// 			dispatch(getWeatherAction(getCityData(state)))
+// 		}
+// 	]
+// }

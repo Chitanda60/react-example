@@ -36,7 +36,15 @@ const CounterAction = {
 		return createAction('HIDE_TODO')(fetchData.then(res => res.data))
 	},
 	searchTodo: () => {
-		
+		// sequenceMiddleware用法 返回action 对象
+		return [
+			// {
+			// 	type: 'SEARCH_TODO_1'
+			// },
+			// (dispatch, state) => {
+
+			// }
+		]
 	}
 }
 
