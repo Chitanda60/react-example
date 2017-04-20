@@ -1,7 +1,7 @@
 
 import {createAction} from 'redux-actions'
 
-import fetchData from '../data_manager/fetchData'
+import {fetchData, getMessage, getDate} from '../data_manager/request'
 
 const CounterAction = {
 	addTodo: () => (dispatch, getState) => { 
@@ -35,16 +35,30 @@ const CounterAction = {
 		// promiseMiddleware 用法2 通过createAction创建标准的flux action ，然后检查payload是否是promise
 		return createAction('HIDE_TODO')(fetchData.then(res => res.data))
 	},
+	sagaTodo: () => (dispatch, ) => {
+		// saga用法
+		
+	},	
 	searchTodo: () => {
-		// sequenceMiddleware用法 返回action 对象
+		// sequence action用法
 		return [
-			// {
-			// 	type: 'SEARCH_TODO_1'
-			// },
-			// (dispatch, state) => {
-
-			// }
+			// thunk
+			(dispatch, getState) => {
+				getMessage((data) => {
+					dispatch({
+						type: 'SEARCH_TODO_1',
+						data: data
+					})
+				})
+			},			
+			// action
+			{
+				type: 'SEARCH_TODO_2'
+			},			
 		]
+	},
+	linkTodo: (push) => (dispatch, getState) => {
+		dispatch(push('/user'))
 	}
 }
 

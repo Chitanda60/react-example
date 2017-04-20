@@ -7,12 +7,14 @@ import {syncHistoryWithStore} from 'react-router-redux'
 import configureStore from './store'
 import routes from './routes'
 
+import DevTools from './containers/DevTools'
+
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 
 const Root = ({store, history}) => (
 	<Provider store={store}>
-		<Router history={history} routes={routes}></Router>
+		<Router history={hashHistory} routes={routes}></Router>
 	</Provider>
 )
 

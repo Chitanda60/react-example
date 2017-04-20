@@ -14,10 +14,10 @@ const calcReducer = (state = 1, action) => {
 			return state
 
 		case 'SEARCH_TODO_1':
-			return state
+			return 11
 
 		case 'SEARCH_TODO_2':
-			return 2
+			return 12
 
 		default:
 			return state

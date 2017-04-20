@@ -1,6 +1,7 @@
 
 import {Component} from 'react'
 import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 
 import CounterAction from '../actions/CounterAction'
 
@@ -34,18 +35,26 @@ class CounterComponent extends Component {
 		this.props.hideTodo()
 	}
 
+	onSaga() {
+		console.log('SAGA_TODO')
+		this.props.sagaTodo()
+	}
+
 	onSearch() {
 		console.log('SEARCH_TODO')
 		this.props.searchTodo()
-	}
+	}	
 
 	onLink() {
 		console.log(this.props)
+		// this.props.linkTodo(push)
 		this.props.router.push('/user')
 	}
 
 	render() {
-		return <CounterItem value={this.props.calcReducer} onAdd={::this.onAdd} onDes={::this.onDes} onShow={::this.onShow} onHide={::this.onHide} onSearch={::this.onSearch} onLink={::this.onLink} />
+		return <CounterItem value={this.props.calcReducer} 
+			onAdd={::this.onAdd} onDes={::this.onDes} onShow={::this.onShow} onHide={::this.onHide} 
+			onSaga={::this.onSaga} onSearch={::this.onSearch} onLink={::this.onLink} />
 	}
 }
 // 内部执行订阅 即输入逻辑
@@ -60,7 +69,9 @@ const mapDispatchToProps = {
 	desTodo: CounterAction.desTodo,
 	showTodo: CounterAction.showTodo,
 	hideTodo: CounterAction.hideTodo,
+	sagaTodo: CounterAction.sagaTodo,
 	searchTodo: CounterAction.searchTodo,
+	linkTodo: CounterAction.linkTodo
 }
 const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(CounterComponent)
 
