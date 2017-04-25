@@ -14,7 +14,7 @@ const history = syncHistoryWithStore(hashHistory, store)
 
 const Root = ({store, history}) => (
 	<Provider store={store}>
-		<Router history={hashHistory} routes={routes}></Router>
+		<Router history={history} routes={routes}></Router>
 	</Provider>
 )
 

@@ -9,13 +9,12 @@ import createLogger from 'redux-logger'
 import {routerMiddleware} from 'react-router-redux'
 
 import {hashHistory} from 'react-router'
-
+	
 import Reducer from '../reducers'
 // import DevTools from '../containers/DevTools'
 
-// 支持发送路由变动action 的 middleware
-// 
-// const routerMiddlewares = routerMiddleware(hashHistory)
+// 作用：用redux action形式来进行路由切换 支持发送路由变动action 的 middleware 
+const routerMiddlewares = routerMiddleware(hashHistory)
 
 // const configureStore = () => {
 // 	 return createStore(
@@ -29,10 +28,10 @@ import Reducer from '../reducers'
 
 const configureStore = () => {
 	// thunk & promise
-	// return applyMiddleware(thunk, promiseMiddleware, createLogger())(createStore)(Reducer)
+	return applyMiddleware(routerMiddlewares, thunk, promiseMiddleware, createLogger())(createStore)(Reducer)
 
 	// sequence action
-	return applyMiddleware(sequenceAction, thunk, createLogger())(createStore)(Reducer)
+	// return applyMiddleware(sequenceAction, thunk, createLogger())(createStore)(Reducer)
 
 	// saga
 	// return applyMiddleware(createSagaMiddleware(), createLogger())(createStore)(Reducer)
