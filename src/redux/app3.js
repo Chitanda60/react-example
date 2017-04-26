@@ -12,9 +12,12 @@ import DevTools from './containers/DevTools'
 const store = configureStore()
 const history = syncHistoryWithStore(hashHistory, store)
 
-const Root = ({store, history}) => (
+const Root = ({store, history}) => (	
 	<Provider store={store}>
-		<Router history={history} routes={routes}></Router>
+		<div>
+			<Router history={history} routes={routes}></Router>
+			<DevTools />
+		</div>
 	</Provider>
 )
 

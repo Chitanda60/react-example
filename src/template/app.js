@@ -13,6 +13,7 @@ import Template from './modules/template';
 import Animation from './modules/animation';
 import Update from './modules/update';
 import Async from './modules/async';
+import Decorator from './modules/decorator';
 
 class App extends Component {
     render() {
@@ -23,6 +24,7 @@ class App extends Component {
                 <Route path="/animation" component={Animation} />
                 <Route path="/update" component={Update} />
                 <Route path="/async" component={Async} />
+                <Route path="/decorator" component={Decorator} />
             </Router>
         )
     }

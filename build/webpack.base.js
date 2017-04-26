@@ -69,6 +69,7 @@ module.exports = {
     plugins: [
       'transform-class-properties',
       'transform-async-to-generator',
+      'transform-decorators-legacy',
       ['transform-runtime', {
         'regenerator': true
       }]
