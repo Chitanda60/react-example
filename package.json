@@ -79,6 +79,7 @@
     "redux-promise": "^0.5.3",
     "redux-saga": "^0.14.6",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.0",
     "shelljs": "^0.7.5",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",

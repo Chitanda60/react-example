@@ -156,9 +156,13 @@ Render()
 store.subscribe(Render)
 
 // 部分源码实现
-// const createStore = (reducer) => {
-// 	let state
-// 	let listeners = []
+// const createStore = (reducer, initialState, enhancer) => {	
+	// let state	
+	// let listeners = []
+	// let currentReducer = reducer
+	// let currentState = initialState
+	// // 某个action是否处于分发状态
+	// let isDispatching = false
 
 // 	const getState = () => state
 

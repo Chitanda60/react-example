@@ -182,19 +182,25 @@ render(
 	document.getElementById('root2')
 )
 
-// 将绑定的store作为context
+// // 将绑定的store作为context
 // class Provider extends Component {
 // 	getChildContext() {
 // 		return {
-// 			store: this.props.store
+// 			store: this.store
 // 		}
 // 	}
+// 	constructor(props, context) {
+// 		super(props, context)			
+// 		this.store = props.store
+// 	}
 // 	render() {
-// 		return this.props.children
+// 		const {children} = this.props
+
+// 		return Children.only(this.props.children)
 // 	}
 // }
 // Provider.childContextTypes = {
 //   	store: React.PropTypes.object
 // }
-// connect生成container时会从context中取出context作为自己的store
+// // connect生成container时会从context中取出context作为自己的store
 // this.store = props.store || context.store

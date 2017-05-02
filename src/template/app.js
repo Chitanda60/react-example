@@ -14,6 +14,7 @@ import Animation from './modules/animation';
 import Update from './modules/update';
 import Async from './modules/async';
 import Decorator from './modules/decorator';
+import Contexts from './modules/contexts';
 
 class App extends Component {
     render() {
@@ -25,6 +26,7 @@ class App extends Component {
                 <Route path="/update" component={Update} />
                 <Route path="/async" component={Async} />
                 <Route path="/decorator" component={Decorator} />
+                <Route path="/contexts" component={Contexts} />
             </Router>
         )
     }

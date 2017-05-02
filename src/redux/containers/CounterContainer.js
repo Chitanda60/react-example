@@ -2,11 +2,42 @@
 import {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
+import {createSelector} from 'reselect'
 
 import CounterAction from '../actions/CounterAction'
 
 import CounterItem from '../components/CounterItem'
 
+// 内部执行订阅 即输入逻辑
+const mapStateToProps = (state) => {
+	return {
+		calcReducer: state.calcReducer,
+	}
+}
+// 内部执行分发 即输出逻辑
+const mapDispatchToProps = {
+	addTodo: CounterAction.addTodo,
+	desTodo: CounterAction.desTodo,
+	showTodo: CounterAction.showTodo,
+	hideTodo: CounterAction.hideTodo,
+	sagaTodo: CounterAction.sagaTodo,
+	searchTodo: CounterAction.searchTodo,
+	linkTodo: CounterAction.linkTodo
+}
+// selector
+const transformState = createSelector(	
+	state => state.calcReducer,
+	state => state.someReducer,
+	(calcReducer, someReducer) => ({
+		calcReducer: calcReducer,
+		someReducer: someReducer
+	})
+)
+
+// 装饰写法 - 原生数据
+// @connect(mapStateToProps, mapDispatchToProps)
+// 装饰写法 - 衍生数据
+@connect(transformState, mapDispatchToProps)
 class CounterComponent extends Component {
 	constructor(props) {
 		super(props)		
@@ -57,25 +88,29 @@ class CounterComponent extends Component {
 			onSaga={::this.onSaga} onSearch={::this.onSearch} onLink={::this.onLink} />
 	}
 }
-// 内部执行订阅 即输入逻辑
-const mapStateToProps = (state) => {
-	return {
-		calcReducer: state.calcReducer,
-	}
-}
-// 内部执行分发 即输出逻辑
-const mapDispatchToProps = {
-	addTodo: CounterAction.addTodo,
-	desTodo: CounterAction.desTodo,
-	showTodo: CounterAction.showTodo,
-	hideTodo: CounterAction.hideTodo,
-	sagaTodo: CounterAction.sagaTodo,
-	searchTodo: CounterAction.searchTodo,
-	linkTodo: CounterAction.linkTodo
-}
-const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(CounterComponent)
 
-export default CounterContainer
+export default CounterComponent
+
+// // 内部执行订阅 即输入逻辑
+// const mapStateToProps = (state) => {
+// 	return {
+// 		calcReducer: state.calcReducer,
+// 	}
+// }
+// // 内部执行分发 即输出逻辑
+// const mapDispatchToProps = {
+// 	addTodo: CounterAction.addTodo,
+// 	desTodo: CounterAction.desTodo,
+// 	showTodo: CounterAction.showTodo,
+// 	hideTodo: CounterAction.hideTodo,
+// 	sagaTodo: CounterAction.sagaTodo,
+// 	searchTodo: CounterAction.searchTodo,
+// 	linkTodo: CounterAction.linkTodo
+// }
+// 常规写法
+// const CounterContainer = connect(mapStateToProps, mapDispatchToProps)(CounterComponent)
+
+// export default CounterContainer
 
 
 

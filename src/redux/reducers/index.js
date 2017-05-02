@@ -4,11 +4,13 @@ import {routerReducer as routing} from 'react-router-redux'
 import calcReducer from './calcReducer.js'
 import userReducer from './userReducer.js'
 import formReducer from './formReducer.js'
+import someReducer from './someReducer.js'
 
 const Reducer = combineReducers({
 	calcReducer,
 	userReducer,
 	formReducer,
+	someReducer,
 	routing
 })
 
