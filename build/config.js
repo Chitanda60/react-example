@@ -14,12 +14,12 @@ module.exports = {
         // test: './src/meal/app.js'
         redux: './src/redux/app.js',
         redux2: './src/redux/app2.js',
-        redux3: './src/redux/app3.js'
+        redux3: './src/redux/app3.js',
     },
 
     server: {
         staticRoot: path.resolve(__dirname, '../'),
-        port: 4000
+        port: 1802
     },
 
     build: {

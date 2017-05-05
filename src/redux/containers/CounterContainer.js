@@ -34,10 +34,16 @@ const transformState = createSelector(
 	})
 )
 
+// mapStateToProps和mapDispatchToProps返回结果以及自定义的ownProps合并返回 用于对props来源进行分类命名重组
+const mergeProps = (stateProps, dispatchProps, ownProps) => {
+	// 默认情况下
+	return Object.assign({}, stateProps, dispatchProps, ownProps)
+}
+
 // 装饰写法 - 原生数据
 // @connect(mapStateToProps, mapDispatchToProps)
 // 装饰写法 - 衍生数据
-@connect(transformState, mapDispatchToProps)
+@connect(transformState, mapDispatchToProps, mergeProps)
 class CounterComponent extends Component {
 	constructor(props) {
 		super(props)		
