@@ -34,10 +34,10 @@ const App = () => {
 		})
 	})
 	app.use(router.routes()).use(router.allowedMethods())
-	app.use(serve(__dirname + '/server'))
+	app.use(serve(__dirname + '/src/render'))
 
 	react(app, {
-		views: path.join(__dirname, './src/render/server'),
+		views: path.join(__dirname, './src/render/views'),
 		doctype: '<!DOCTYPE html>',
 		extname: 'js'
 	})

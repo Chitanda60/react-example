@@ -11,9 +11,9 @@ module.exports = {
     },
     output: {
 // 生产环境下资源访问路径
-        publicPath: '../public/',
+        publicPath: '../render/public/',
 // 所有打包好的资源的存放位置
-        path: '../public/',
+        path: '../render/public/',
 // 生成的打包文件名
         filename: 'bundle.js'
     },

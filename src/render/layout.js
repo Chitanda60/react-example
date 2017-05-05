@@ -1,7 +1,7 @@
 
 const React = require('react')
 
-import Iso from './iso.js'
+const Iso = require('./iso.js')
 
 class Layout extends React.Component {
 	constructor(props) {
@@ -17,9 +17,7 @@ class Layout extends React.Component {
 				<title>Server Render</title>
 			</head>			
 			<body>
-				<div id='root'>					
-					{children}
-				</div>
+				{children}
 				<script src="/public/bundle.js"></script>
 			</body>
 		    </html>
@@ -27,4 +25,4 @@ class Layout extends React.Component {
 	}
 }
 
-export default Layout
+module.exports = Layout

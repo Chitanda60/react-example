@@ -8,7 +8,7 @@ const ReactDOM = require('react-dom')
 
 import {Router, Route, hashHistory} from 'react-router'
 
-import Iso from './iso.js'
+const Iso = require('./iso.js')
 
 // const Root = () => {
 // 	return (
