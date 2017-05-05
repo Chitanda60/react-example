@@ -1,9 +1,11 @@
 
-const register = require('babel-register')
-const react = require('koa-react-view')
-const path = require('path')
+// 服务端渲染服务
 const Koa = require('koa')
 const KoaRouter = require('koa-router')
+const path = require('path')
+const register = require('babel-register')
+const react = require('koa-react-view')
+const serve = require('koa-static')
 
 // 使用一个log middleware
 // app.use(async (ctx, next) => {
@@ -27,13 +29,15 @@ const App = () => {
 			data: {
 				name: '蛇莓',
 				mess: '夏玲'
-			}
+			},
+			isServer: true
 		})
 	})
 	app.use(router.routes()).use(router.allowedMethods())
+	app.use(serve(__dirname + '/server'))
 
 	react(app, {
-		views: path.join(__dirname, './server/views'),
+		views: path.join(__dirname, './src/render/server'),
 		doctype: '<!DOCTYPE html>',
 		extname: 'js'
 	})

@@ -3,12 +3,28 @@
  * 直出和同构探索
  */
 
-'use strict'
+const React = require('react')
+const ReactDOM = require('react-dom')
 
-import {Component} from 'react';
-import {render} from 'react-dom';
-import {Router, Route, hashHistory} from 'react-router';
+import {Router, Route, hashHistory} from 'react-router'
 
-import Home from './views/home.js'
+import Iso from './iso.js'
 
-render( <Home />, document.getElementById('root'));
+// const Root = () => {
+// 	return (
+// 		<Router history={hashHistory}>
+// 			<Route path="/home" component={Home}></Route>
+// 		</Router>
+// 	)
+// }
+
+const dom = document.getElementById('root')
+
+const getServerData = (key) => {
+	return JSON.parse(dom.getAttribute(`data-${key}`))
+}
+
+// 获得服务端渲染数据
+const data = getServerData('data')
+
+ReactDOM.render(<Iso data={data} isServer={false} />, dom);
