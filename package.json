@@ -8,7 +8,8 @@
     "clean": "rm -rf ./release && rm -rf ./assets",
     "build": "sh build.sh",
     "build:webpack": "webpack -p --config ./build/webpack.prod.js",
-    "build:gulp": "gulp clean && gulp build"
+    "build:gulp": "gulp clean && gulp build",
+    "server": "sh build-server.sh"
   },
   "author": "qilei",
   "license": "ISC",

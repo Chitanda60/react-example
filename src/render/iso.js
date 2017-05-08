@@ -2,7 +2,7 @@
 // 前后端公用的Iso模块: 路由模块
 const React = require('react')
 
-import {Router, Route, IndexRoute, hashHistory, browserHistory, createMemoryHistory} from 'react-router'
+import {Router, Route, browserHistory, createMemoryHistory} from 'react-router'
 
 const Template = require('./components/template.js')
 const Layout = require('./layout')
@@ -22,7 +22,7 @@ class Iso extends React.Component {
 				const {children} = this.props
 
 				return (
-					<Comp data={data} tip={tip} >{children}</Comp>
+					<Comp data={data} tip={tip}>{children}</Comp>
 				)
 			}
 		}
@@ -30,10 +30,12 @@ class Iso extends React.Component {
 
 	render() {
 		const {data, isServer} = this.props
+		const {path} = data
 
 		return (
-			<Router history={isServer ? createMemoryHistory() : browserHistory}>
+			<Router history={isServer ? createMemoryHistory(path || '/') : browserHistory}>
 				<Route path='/home' component={this.wrapComponent(Template)}></Route>
+				<Route path='/card' component={this.wrapComponent(Template)}></Route>
 			</Router>
 		)
 	}

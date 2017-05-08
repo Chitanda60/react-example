@@ -21593,12 +21593,14 @@
 				var _props2 = this.props,
 				    data = _props2.data,
 				    isServer = _props2.isServer;
+				var path = data.path;
 
 
 				return React.createElement(
 					_reactRouter.Router,
-					{ history: isServer ? (0, _reactRouter.createMemoryHistory)('/') : _reactRouter.browserHistory },
-					React.createElement(_reactRouter.Route, { path: '/home', component: this.wrapComponent(Template) })
+					{ history: isServer ? (0, _reactRouter.createMemoryHistory)(path || '/') : _reactRouter.browserHistory },
+					React.createElement(_reactRouter.Route, { path: '/home', component: this.wrapComponent(Template) }),
+					React.createElement(_reactRouter.Route, { path: '/card', component: this.wrapComponent(Template) })
 				);
 			}
 		}]);
@@ -28188,31 +28190,15 @@
 
 	var React = __webpack_require__(1);
 
-	var Template = function (_React$Component) {
-		(0, _inherits3.default)(Template, _React$Component);
+	var Template1 = function (_React$Component) {
+		(0, _inherits3.default)(Template1, _React$Component);
 
-		function Template(props) {
-			(0, _classCallCheck3.default)(this, Template);
-			return (0, _possibleConstructorReturn3.default)(this, (Template.__proto__ || (0, _getPrototypeOf2.default)(Template)).call(this, props));
-			// this.state = {
-			// 	name: '',
-			// 	mess: ''
-			// }
+		function Template1(props) {
+			(0, _classCallCheck3.default)(this, Template1);
+			return (0, _possibleConstructorReturn3.default)(this, (Template1.__proto__ || (0, _getPrototypeOf2.default)(Template1)).call(this, props));
 		}
 
-		// componentDidMount() {
-		// 	const self = this
-
-		// 	getMessage((json) => {
-		// 		self.setState({
-		// 			name: json.name,
-		// 			mess: json.mess
-		// 		})
-		// 		console.log(json)
-		// 	})
-		// }
-
-		(0, _createClass3.default)(Template, [{
+		(0, _createClass3.default)(Template1, [{
 			key: 'render',
 			value: function render() {
 				var _props = this.props,
@@ -28243,10 +28229,10 @@
 				);
 			}
 		}]);
-		return Template;
+		return Template1;
 	}(React.Component);
 
-	module.exports = Template;
+	module.exports = Template1;
 
 /***/ },
 /* 321 */

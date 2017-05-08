@@ -1,26 +1,10 @@
 
 const React = require('react')
 
-class Template extends React.Component {
+class Template1 extends React.Component {
 	constructor(props) {
 		super(props)
-		// this.state = {
-		// 	name: '',
-		// 	mess: ''
-		// }
 	}
-
-	// componentDidMount() {
-	// 	const self = this
-
-	// 	getMessage((json) => {
-	// 		self.setState({
-	// 			name: json.name,
-	// 			mess: json.mess
-	// 		})
-	// 		console.log(json)
-	// 	})
-	// }
 
 	render() {
 		const {data, tip} = this.props
@@ -36,4 +20,4 @@ class Template extends React.Component {
 	}
 }
 
-module.exports = Template
+module.exports = Template1

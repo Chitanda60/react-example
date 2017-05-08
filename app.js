@@ -13,26 +13,41 @@ const App = () => {
 
 	// 初始化路由分派的generator
 	router.get('/home', async (ctx) => {
-		// 服务端渲染 内部调用ReactDOMServer.renderToSring或者ReactDOMServer.renderToStaticMarkup生成html字符串返回前端
+		// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端
 		ctx.body = ctx.render('home', {
 			microdata: {
-				domain: '//localhost:1803'
+				domain: '//localhost:1803',				
 			},
 			data: {
+				path: ctx.path,
 				name: '蛇莓',
 				mess: '夏玲'
 			},
 			isServer: true
-		})
+		})		
+	})
+	router.get('/card', async (ctx) => {
+		ctx.body = ctx.render('card', {
+			microdata: {
+				domain: '//localhost:1803',				
+			},
+			data: {
+				path: ctx.path,
+				date: '2017.5.8'
+			},
+			isServer: true
+		})		
 	})
 	app.use(router.routes()).use(router.allowedMethods())
 	// 静态资源地址
 	app.use(serve(__dirname + '/src/render'))
 	// 服务端渲染模板配置
+	// internals决定使用renderToSring还是renderToStaticMarkup 前者添加react-id避免重复渲染检查后者不会
 	react(app, {
 		views: path.join(__dirname, './src/render/views'),
 		doctype: '<!DOCTYPE html>',
-		extname: 'js'
+		extname: 'js',
+		internals: false
 	})
 	// require资源编译模式
 	register({

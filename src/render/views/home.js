@@ -8,7 +8,7 @@ const Iso = require('../iso.js')
 class Home extends React.Component {
 	constructor(props) {
 		super(props)
-	}	
+	}
 
 	render() {
 		const {data, isServer} = this.props
