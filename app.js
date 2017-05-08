@@ -7,14 +7,6 @@ const register = require('babel-register')
 const react = require('koa-react-view')
 const serve = require('koa-static')
 
-// 使用一个log middleware
-// app.use(async (ctx, next) => {
-// 	const start = new Date()
-// 	await next()
-// 	const ms = new Date() - start
-// 	console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)	
-// })
-
 const App = () => {
 	const app = new Koa()
 	const router = new KoaRouter()
@@ -34,13 +26,15 @@ const App = () => {
 		})
 	})
 	app.use(router.routes()).use(router.allowedMethods())
+	// 静态资源地址
 	app.use(serve(__dirname + '/src/render'))
-
+	// 服务端渲染模板配置
 	react(app, {
 		views: path.join(__dirname, './src/render/views'),
 		doctype: '<!DOCTYPE html>',
 		extname: 'js'
 	})
+	// require资源编译模式
 	register({
 		presets: ['stage-0', 'es2015', 'react'],
 		extensions: ['.js'],

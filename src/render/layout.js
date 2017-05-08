@@ -14,8 +14,8 @@ class Layout extends React.Component {
 		return (
 			<html>
 			<head>
-				<title>Server Render</title>
-			</head>			
+				<title>Render</title>
+			</head>
 			<body>
 				{children}
 				<script src="/public/bundle.js"></script>

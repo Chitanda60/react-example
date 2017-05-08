@@ -6,17 +6,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-import {Router, Route, hashHistory} from 'react-router'
-
 const Iso = require('./iso.js')
-
-// const Root = () => {
-// 	return (
-// 		<Router history={hashHistory}>
-// 			<Route path="/home" component={Home}></Route>
-// 		</Router>
-// 	)
-// }
 
 const dom = document.getElementById('root')
 
