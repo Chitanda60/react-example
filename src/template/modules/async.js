@@ -152,7 +152,7 @@ const asyncfunc = () => {
 
 	function timeout(name) {
 	    return new Promise((resolve) => {
-	        setTimeout(() => {
+	        setTimeout(() => {	        	
 	        	resolve(name)
 	        }, 1000)
 	    });

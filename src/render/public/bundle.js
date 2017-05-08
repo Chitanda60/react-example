@@ -21540,8 +21540,9 @@
 	// 前后端公用的Iso模块: 路由模块
 	var React = __webpack_require__(1);
 
-	var Template = __webpack_require__(320);
-	var Layout = __webpack_require__(321);
+	var Template1 = __webpack_require__(320);
+	var Template2 = __webpack_require__(321);
+	var Layout = __webpack_require__(322);
 
 	var Iso = function (_React$Component) {
 		(0, _inherits3.default)(Iso, _React$Component);
@@ -21561,6 +21562,7 @@
 				    data = _props.data,
 				    isServer = _props.isServer;
 
+				console.log(this.props);
 				var tip = isServer ? 'Server Render' : 'Client Render';
 
 				return function (_React$Component2) {
@@ -21599,8 +21601,8 @@
 				return React.createElement(
 					_reactRouter.Router,
 					{ history: isServer ? (0, _reactRouter.createMemoryHistory)(path || '/') : _reactRouter.browserHistory },
-					React.createElement(_reactRouter.Route, { path: '/home', component: this.wrapComponent(Template) }),
-					React.createElement(_reactRouter.Route, { path: '/card', component: this.wrapComponent(Template) })
+					React.createElement(_reactRouter.Route, { path: '/home', component: this.wrapComponent(Template1) }),
+					React.createElement(_reactRouter.Route, { path: '/card', component: this.wrapComponent(Template2) })
 				);
 			}
 		}]);
@@ -28199,6 +28201,16 @@
 		}
 
 		(0, _createClass3.default)(Template1, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				// 判断是否需要发起ajax请求
+			}
+		}, {
+			key: 'goCard',
+			value: function goCard() {
+				console.log('');
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var _props = this.props,
@@ -28236,6 +28248,63 @@
 
 /***/ },
 /* 321 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _getPrototypeOf = __webpack_require__(179);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(205);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(206);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(210);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(257);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var React = __webpack_require__(1);
+
+	var Template2 = function (_React$Component) {
+		(0, _inherits3.default)(Template2, _React$Component);
+
+		function Template2(props) {
+			(0, _classCallCheck3.default)(this, Template2);
+			return (0, _possibleConstructorReturn3.default)(this, (Template2.__proto__ || (0, _getPrototypeOf2.default)(Template2)).call(this, props));
+		}
+
+		(0, _createClass3.default)(Template2, [{
+			key: 'render',
+			value: function render() {
+				return React.createElement(
+					'div',
+					null,
+					React.createElement(
+						'div',
+						null,
+						'2017.5.8'
+					)
+				);
+			}
+		}]);
+		return Template2;
+	}(React.Component);
+
+	module.exports = Template2;
+
+/***/ },
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';

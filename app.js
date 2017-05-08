@@ -7,27 +7,30 @@ const register = require('babel-register')
 const react = require('koa-react-view')
 const serve = require('koa-static')
 
+const {fetchMessage} = require('./src/render/data_manager/request')
+
 const App = () => {
 	const app = new Koa()
 	const router = new KoaRouter()
 
 	// 初始化路由分派的generator
 	router.get('/home', async (ctx) => {
-		// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端
+		// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端		
+		let data = await fetchMessage()
 		ctx.body = ctx.render('home', {
 			microdata: {
-				domain: '//localhost:1803',				
+				domain: '//localhost:1803',
 			},
 			data: {
 				path: ctx.path,
-				name: '蛇莓',
-				mess: '夏玲'
+				name: data.name,
+				mess: data.mess
 			},
 			isServer: true
 		})		
 	})
 	router.get('/card', async (ctx) => {
-		ctx.body = ctx.render('card', {
+		ctx.body = ctx.render('home', {
 			microdata: {
 				domain: '//localhost:1803',				
 			},
@@ -37,6 +40,10 @@ const App = () => {
 			},
 			isServer: true
 		})		
+	})
+	app.use(async (ctx, next) => {
+		await next()
+	    // await ctx.render('404')
 	})
 	app.use(router.routes()).use(router.allowedMethods())
 	// 静态资源地址

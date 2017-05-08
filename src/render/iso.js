@@ -4,7 +4,8 @@ const React = require('react')
 
 import {Router, Route, browserHistory, createMemoryHistory} from 'react-router'
 
-const Template = require('./components/template.js')
+const Template1 = require('./components/template1.js')
+const Template2 = require('./components/template2.js')
 const Layout = require('./layout')
 
 class Iso extends React.Component {
@@ -14,8 +15,8 @@ class Iso extends React.Component {
 
 	// 注入服务端传入的props
 	wrapComponent(Comp) {
-		const {data, isServer} = this.props
-		const tip = isServer ? 'Server Render' : 'Client Render'
+		const {data, isServer} = this.props		
+		const tip = isServer ? 'Server Render' : 'Client Render'		
 
 		return class extends React.Component {
 			render() {
@@ -34,8 +35,8 @@ class Iso extends React.Component {
 
 		return (
 			<Router history={isServer ? createMemoryHistory(path || '/') : browserHistory}>
-				<Route path='/home' component={this.wrapComponent(Template)}></Route>
-				<Route path='/card' component={this.wrapComponent(Template)}></Route>
+				<Route path='/home' component={this.wrapComponent(Template1)}></Route>
+				<Route path='/card' component={this.wrapComponent(Template2)}></Route>
 			</Router>
 		)
 	}

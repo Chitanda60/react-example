@@ -35,8 +35,22 @@ const getDate = (func) => {
 		})
 }
 
+// for 服务端直出
+const fetchMessage = () => {
+	return new Promise((resolve, reject) => {
+		getMessage((json) => {
+			resolve({
+				name: json.name,
+				mess: json.mess
+			})
+		})
+	})
+}
+
 export {
 	fetchData,
 	getMessage,
-	getDate
+	getDate,
+
+	fetchMessage,
 }
