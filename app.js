@@ -17,14 +17,10 @@ const App = () => {
 	router.get('/home', async (ctx) => {
 		// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端		
 		let data = await fetchMessage()
-		ctx.body = ctx.render('home', {
+		ctx.body = ctx.render('/home', {
 			microdata: {
 				domain: '//localhost:1803',
-			},
-			data: {
 				path: ctx.path,
-				name: data.name,
-				mess: data.mess
 			},
 			isServer: true
 		})		
@@ -32,12 +28,9 @@ const App = () => {
 	router.get('/card', async (ctx) => {
 		ctx.body = ctx.render('home', {
 			microdata: {
-				domain: '//localhost:1803',				
-			},
-			data: {
+				domain: '//localhost:1803',
 				path: ctx.path,
-				date: '2017.5.8'
-			},
+			},			
 			isServer: true
 		})		
 	})
@@ -60,6 +53,14 @@ const App = () => {
 	register({
 		presets: ['stage-0', 'es2015', 'react'],
 		extensions: ['.js'],
+		plugins: [
+	      'transform-class-properties',
+	      'transform-async-to-generator',
+	      'transform-decorators-legacy',
+	      ['transform-runtime', {
+	        'regenerator': true
+	      }]
+	    ]
 	})
 
 	return app

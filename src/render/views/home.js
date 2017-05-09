@@ -11,15 +11,15 @@ class Home extends React.Component {
 	}
 
 	render() {
-		const {data, isServer} = this.props
-		const serverData = JSON.stringify(data)
+		const {microdata, isServer} = this.props
+		const serverData = JSON.stringify(microdata)
 
 		return (
 			<Layout>
-				<div id="root" data-data={serverData}>
+				<div id="root" data-microdata={serverData}>
 					{	
 						// 删除是页面直出 保留是数据直出
-						<Iso data={data} isServer={isServer}></Iso>
+						<Iso microdata={microdata} isServer={isServer}></Iso>
 					}
 				</div>
 			</Layout>			

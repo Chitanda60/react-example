@@ -6,10 +6,13 @@ class Template2 extends React.Component {
 		super(props)
 	}
 
-	render() {		
+	render() {
+		// const {date} = this.props.data
+		const date = '2017.2.25'
+
 		return (
 			<div>
-				<div>2017.5.8</div>
+				<div>{date}</div>
 			</div>
 		)
 	}

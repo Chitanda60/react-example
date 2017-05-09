@@ -15,6 +15,6 @@ const getServerData = (key) => {
 }
 
 // 获得服务端渲染数据
-const data = getServerData('data')
+const microdata = getServerData('microdata')
 
-ReactDOM.render(<Iso data={data} isServer={false} />, dom);
+ReactDOM.render(<Iso microdata={microdata} isServer={false} />, dom);
