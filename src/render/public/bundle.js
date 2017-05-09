@@ -21570,8 +21570,7 @@
 				var _props = this.props,
 				    mydata = _props.mydata,
 				    isServer = _props.isServer;
-
-				var tip = isServer ? 'Server Render' : 'Client Render';
+				// const tip = isServer ? 'Server Render' : 'Client Render'		
 
 				return function (_React$Component2) {
 					(0, _inherits3.default)(_class, _React$Component2);
@@ -21591,7 +21590,7 @@
 
 							return React.createElement(
 								Comp,
-								(0, _extends3.default)({ tip: tip, data: mydata }, other),
+								(0, _extends3.default)({ data: mydata }, other),
 								children
 							);
 						}
@@ -21608,19 +21607,44 @@
 				var path = microdata.path;
 
 
-				console.log(path);
-				console.log((0, _reactRouter.createMemoryHistory)(path || '/'));
-
 				return React.createElement(
 					_reactRouter.Router,
 					{ history: isServer ? (0, _reactRouter.createMemoryHistory)(path || '/') : _reactRouter.browserHistory },
-					React.createElement(_reactRouter.Route, { path: '/home', component: this.wrapComponent(Template1) }),
-					React.createElement(_reactRouter.Route, { path: '/card', component: this.wrapComponent(Template2) })
+					React.createElement(
+						_reactRouter.Route,
+						{ path: path || '/', component: this.wrapComponent(LayoutView) },
+						React.createElement(_reactRouter.IndexRoute, { component: this.wrapComponent(matchComponent(path)) }),
+						React.createElement(_reactRouter.Route, { path: '/home', component: Template1 }),
+						React.createElement(_reactRouter.Route, { path: '/card', component: Template2 })
+					)
 				);
 			}
 		}]);
 		return Iso;
 	}(React.Component);
+
+	var matchComponent = function matchComponent(path) {
+		var comp = {};
+
+		switch (path) {
+			case '/home':
+				comp = Template1;
+				break;
+			case '/card':
+				comp = Template2;
+				break;
+		}
+
+		return comp;
+	};
+
+	var LayoutView = function LayoutView(props) {
+		return React.createElement(
+			'div',
+			null,
+			props.children
+		);
+	};
 
 	module.exports = Iso;
 
@@ -28332,7 +28356,7 @@
 			var _this = (0, _possibleConstructorReturn3.default)(this, (Template1.__proto__ || (0, _getPrototypeOf2.default)(Template1)).call(this, props));
 
 			_this.state = {
-				data: props.data
+				data1: null
 			};
 			return _this;
 		}
@@ -28341,15 +28365,29 @@
 
 
 		(0, _createClass3.default)(Template1, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				var data = this.props.data;
+
+
+				if (!!data) {
+					this.setState({
+						data1: data
+					});
+				}
+			}
+		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				var _this2 = this;
 
-				this.constructor.fetchMessage(function (data) {
-					_this2.setState({
-						data: data
+				if (!this.state.data1) {
+					this.constructor.fetchMessage(function (data) {
+						_this2.setState({
+							data1: data
+						});
 					});
-				});
+				}
 			}
 		}, {
 			key: 'goCard',
@@ -28362,31 +28400,23 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var tip = this.props.tip;
-				var data = this.state.data;
-				var name = data.name,
-				    mess = data.mess;
+				var data1 = this.state.data1;
 
 
-				return React.createElement(
+				return !!data1 ? React.createElement(
 					'div',
 					{ onClick: this.goCard.bind(this) },
 					React.createElement(
 						'div',
 						null,
-						tip
+						data1.name
 					),
 					React.createElement(
 						'div',
 						null,
-						name
-					),
-					React.createElement(
-						'div',
-						null,
-						mess
+						data1.mess
 					)
-				);
+				) : null;
 			}
 		}]);
 		return Template1;
@@ -30524,21 +30554,35 @@
 			var _this = (0, _possibleConstructorReturn3.default)(this, (Template2.__proto__ || (0, _getPrototypeOf2.default)(Template2)).call(this, props));
 
 			_this.state = {
-				data: props.data
+				data2: null
 			};
 			return _this;
 		}
 
 		(0, _createClass3.default)(Template2, [{
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				var data = this.props.data;
+
+
+				if (!!data) {
+					this.setState({
+						data2: data
+					});
+				}
+			}
+		}, {
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				var _this2 = this;
 
-				this.constructor.fetchDate(function (data) {
-					_this2.setState({
-						data: data
+				if (!this.state.data2) {
+					this.constructor.fetchDate(function (data) {
+						_this2.setState({
+							data2: data
+						});
 					});
-				});
+				}
 			}
 		}, {
 			key: 'goHome',
@@ -30551,18 +30595,18 @@
 		}, {
 			key: 'render',
 			value: function render() {
-				var time = this.state.data.time;
+				var data2 = this.state.data2;
 
 
-				return React.createElement(
+				return !!data2 ? React.createElement(
 					'div',
 					{ onClick: this.goHome.bind(this) },
 					React.createElement(
 						'div',
 						null,
-						time
+						data2.time
 					)
-				);
+				) : null;
 			}
 		}]);
 		return Template2;

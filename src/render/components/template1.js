@@ -7,7 +7,7 @@ class Template1 extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			data: props.data
+			data1: null
 		}
 	}
 
@@ -18,12 +18,24 @@ class Template1 extends React.Component {
 		callback(data)
 	}
 
-	componentDidMount() {
-		this.constructor.fetchMessage((data) => {
+	componentWillMount() {		
+		const {data} = this.props
+
+		if (!!data) {
 			this.setState({
-				data: data
+				data1: data
 			})
-		})
+		}
+	}
+
+	componentDidMount() {		
+		if (!this.state.data1) {
+			this.constructor.fetchMessage((data) => {
+				this.setState({
+					data1: data
+				})
+			})
+		}
 	}
 
 	goCard() {
@@ -34,17 +46,14 @@ class Template1 extends React.Component {
 	}
 
 	render() {
-		const {tip} = this.props
-		const {data} = this.state
-		const {name, mess} = data
+		const {data1} = this.state		
 
-		return (
+		return !!data1 ? (
 			<div onClick={::this.goCard}>
-				<div>{tip}</div>
-				<div>{name}</div>
-				<div>{mess}</div>
+				<div>{data1.name}</div>
+				<div>{data1.mess}</div>
 			</div>
-		)
+		) : null
 	}
 }
 

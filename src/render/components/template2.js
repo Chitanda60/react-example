@@ -7,8 +7,8 @@ class Template2 extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			data: props.data
-		}
+			data2: null
+		}		
 	}
 
 	static fetchDate = async function(callback) {
@@ -17,12 +17,24 @@ class Template2 extends React.Component {
 		callback(data)
 	}
 
-	componentDidMount() {
-		this.constructor.fetchDate((data) => {
+	componentWillMount() {
+		const {data} = this.props
+
+		if (!!data) {
 			this.setState({
-				data: data
+				data2: data
 			})
-		})
+		}
+	}
+
+	componentDidMount() {
+		if (!this.state.data2) {
+			this.constructor.fetchDate((data) => {
+				this.setState({
+					data2: data
+				})
+			})
+		}
 	}
 
 	goHome() {
@@ -33,13 +45,13 @@ class Template2 extends React.Component {
 	}
 
 	render() {
-		const {time} = this.state.data
+		const {data2} = this.state		
 
-		return (
+		return !!data2 ? (
 			<div onClick={::this.goHome}>
-				<div>{time}</div>
+				<div>{data2.time}</div>
 			</div>
-		)
+		) : null
 	}
 }
 
