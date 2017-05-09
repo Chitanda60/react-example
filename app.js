@@ -15,29 +15,34 @@ const App = () => {
 
 	// 初始化路由分派的generator
 	router.get('/home', async (ctx) => {
-		// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端		
-		let data = await fetchMessage()
-		ctx.body = ctx.render('/home', {
-			microdata: {
-				domain: '//localhost:1803',
-				path: ctx.path,
-			},
-			isServer: true
-		})		
+		await require('./src/render/components/template1').fetchMessage((data) => {
+			// 服务端渲染 内部调用renderToSring或者renderToStaticMarkup生成html字符串返回前端
+			ctx.body = ctx.render('/home', {
+				microdata: {
+					domain: '//localhost:1803',
+					path: ctx.path,
+				},
+				mydata: data,
+				isServer: true
+			})
+		})
 	})
 	router.get('/card', async (ctx) => {
-		ctx.body = ctx.render('home', {
-			microdata: {
-				domain: '//localhost:1803',
-				path: ctx.path,
-			},			
-			isServer: true
-		})		
+		await require('./src/render/components/template2').fetchDate((data) => {
+			ctx.body = ctx.render('home', {
+				microdata: {
+					domain: '//localhost:1803',
+					path: ctx.path,
+				},
+				mydata: data,
+				isServer: true
+			})
+		})			
 	})
-	app.use(async (ctx, next) => {
-		await next()
-	    // await ctx.render('404')
-	})
+	// app.use(async (ctx, next) => {
+	// 	await next()
+	//     // await ctx.render('404')
+	// })
 	app.use(router.routes()).use(router.allowedMethods())
 	// 静态资源地址
 	app.use(serve(__dirname + '/src/render'))

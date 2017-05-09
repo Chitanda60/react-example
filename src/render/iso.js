@@ -15,15 +15,19 @@ class Iso extends React.Component {
 
 	// 注入服务端传入的props
 	wrapComponent(Comp) {
-		const {isServer} = this.props
+		const {mydata, isServer} = this.props
 		const tip = isServer ? 'Server Render' : 'Client Render'		
 
 		return class extends React.Component {
+			constructor(props) {
+				super(props);				
+			}
+
 			render() {
-				const {children} = this.props
+				const {children, ...other} = this.props
 
 				return (
-					<Comp tip={tip}>{children}</Comp>
+					<Comp tip={tip} data={mydata} {...other}>{children}</Comp>
 				)
 			}
 		}
@@ -33,10 +37,13 @@ class Iso extends React.Component {
 		const {microdata, isServer} = this.props
 		const {path} = microdata
 
+		console.log(path)
+		console.log(createMemoryHistory(path || '/'))
+
 		return (
 			<Router history={isServer ? createMemoryHistory(path || '/') : browserHistory}>
 				<Route path='/home' component={this.wrapComponent(Template1)}></Route>
-				<Route path='/card' component={this.wrapComponent(Template2)}></Route>
+				<Route path='/card' component={this.wrapComponent(Template2)}></Route>				
 			</Router>
 		)
 	}

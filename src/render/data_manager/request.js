@@ -46,6 +46,15 @@ const fetchMessage = () => {
 		})
 	})
 }
+const fetchDate = () => {
+	return new Promise((resolve, reject) => {
+		getDate((json) => {
+			resolve({
+				time: json.time
+			})
+		})
+	})
+}
 
 export {
 	fetchData,
@@ -53,4 +62,5 @@ export {
 	getDate,
 
 	fetchMessage,
+	fetchDate,
 }

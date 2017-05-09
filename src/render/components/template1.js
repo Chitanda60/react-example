@@ -7,13 +7,14 @@ class Template1 extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			data: {}
+			data: props.data
 		}
 	}
 
-	// 利用static扩展组件
+	// 利用static扩展组件 供服务端渲染拉取数据使用
 	static fetchMessage = async function(callback) {
 		const data = await fetchMessage()
+
 		callback(data)
 	}
 
@@ -26,7 +27,10 @@ class Template1 extends React.Component {
 	}
 
 	goCard() {
-		console.log('')
+		this.props.router.push({
+			pathname: '/card',
+			query: {}
+		})
 	}
 
 	render() {
@@ -35,7 +39,7 @@ class Template1 extends React.Component {
 		const {name, mess} = data
 
 		return (
-			<div>
+			<div onClick={::this.goCard}>
 				<div>{tip}</div>
 				<div>{name}</div>
 				<div>{mess}</div>
