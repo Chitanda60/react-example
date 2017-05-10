@@ -15,6 +15,7 @@ import Update from './modules/update';
 import Async from './modules/async';
 import Decorator from './modules/decorator';
 import Contexts from './modules/contexts';
+import Canvass from './modules/canvass';
 
 class App extends Component {
     render() {
@@ -27,6 +28,7 @@ class App extends Component {
                 <Route path="/async" component={Async} />
                 <Route path="/decorator" component={Decorator} />
                 <Route path="/contexts" component={Contexts} />
+                <Route path="/canvass" component={Canvass} />
             </Router>
         )
     }

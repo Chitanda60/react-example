@@ -29980,7 +29980,7 @@
 	});
 
 	var getMessage = function getMessage(func) {
-		(0, _isomorphicFetch2.default)('http://10.1.135.230:1801/message', { method: 'GET' }).then(function (res) {
+		(0, _isomorphicFetch2.default)('http://10.1.135.18:1801/message', { method: 'GET' }).then(function (res) {
 			return res.json();
 		}).then(function (json) {
 			func(json);
@@ -29990,7 +29990,7 @@
 	};
 
 	var getDate = function getDate(func) {
-		(0, _isomorphicFetch2.default)('http://10.1.135.230:1801/date', { method: 'GET' }).then(function (res) {
+		(0, _isomorphicFetch2.default)('http://10.1.135.18:1801/date', { method: 'GET' }).then(function (res) {
 			return res.json();
 		}).then(function (json) {
 			func(json);

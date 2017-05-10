@@ -10,7 +10,7 @@ const fetchData = new Promise((resolve, reject) => {
 })
 
 const getMessage = (func) => {
-	fetch('http://10.1.135.230:1801/message', { method: 'GET' })
+	fetch('http://10.1.135.18:1801/message', { method: 'GET' })
 		.then((res) => {
 			return res.json()
 		})
@@ -23,7 +23,7 @@ const getMessage = (func) => {
 }
 
 const getDate = (func) => {
-	fetch('http://10.1.135.230:1801/date', { method: 'GET' })
+	fetch('http://10.1.135.18:1801/date', { method: 'GET' })
 		.then((res) => {
 			return res.json()
 		})
