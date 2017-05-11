@@ -14,7 +14,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function(name) {
     baseWebpackConfig.entry[name] = ['webpack-hot-middleware/client?noInfo=true&reload=true', baseWebpackConfig.entry[name]]
         // baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 })
-
+console.log(baseWebpackConfig)
 module.exports = merge(baseWebpackConfig, {
     devtool: '#eval-source-map',
     plugins: [
