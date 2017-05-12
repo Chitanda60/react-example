@@ -29,7 +29,7 @@ const configureStore = () => {
 
 // const configureStore = () => {
 // 	// thunk & promise
-// 	return applyMiddleware(thunk, promiseMiddleware, createLogger())(createStore)(Reducer)
+	// return applyMiddleware(thunk, promiseMiddleware, createLogger())(createStore)(Reducer)
 
 // 	// sequence action
 // 	// return applyMiddleware(sequenceAction, thunk, createLogger())(createStore)(Reducer)

@@ -191,7 +191,7 @@ store.subscribe(Render)
 // 			dispatch: (action) => dispatch(action)
 // 		}
 // 		chain = middlewares.map(middleware => middleware(middlewareAPI))
-//		// 从右到左逐层包装dispatch
+// 		// 从右到左逐层包装dispatch
 // 		dispatch = compose(...chain)(store.dispatch)
 // 		return {...store, dispatch}
 // 	}
@@ -210,7 +210,7 @@ store.subscribe(Render)
 // 	return (...args) => rest.reduceRight((composed, f) => f(composed), last(...args))
 // }
 
-// functional action
+// // functional action
 // const createThunkMiddleware = (extraArgument) => {
 // 	// {dispatch, getState} 在applyMiddleware中传入
 // 	// next 在compose中传入，就是下一个middleware

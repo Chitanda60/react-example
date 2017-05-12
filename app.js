@@ -1,5 +1,7 @@
+/**
+ * 服务端渲染服务 页面直出
+ */
 
-// 服务端渲染服务
 const Koa = require('koa')
 const KoaRouter = require('koa-router')
 const path = require('path')
