@@ -65,7 +65,7 @@ module.exports = {
   devtool: 'inline-source-map',
 
   babel: {
-    presets: ['stage-0', 'es2015', 'react'],
+    presets: ['flow', 'stage-0', 'es2015', 'react'],
     plugins: [
       'transform-class-properties',
       'transform-async-to-generator',

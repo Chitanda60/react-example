@@ -16,6 +16,7 @@ import AsyncView from './modules/asyncView';
 import DecoratorView from './modules/decoratorView';
 import ContextView from './modules/contextView';
 import CanvasView from './modules/canvasView';
+import FlowtypeView from './modules/flowtypeView';
 
 class App extends Component {
     render() {
@@ -23,12 +24,13 @@ class App extends Component {
             <Router history={hashHistory}>
                 <Route path="/" component={Home} />
                 <Route path="/template" component={Template} />
-                <Route path="/animation" component={Animation} />
-                <Route path="/update" component={Update} />
-                <Route path="/async" component={Async} />
-                <Route path="/decorator" component={Decorator} />
-                <Route path="/contexts" component={Contexts} />
-                <Route path="/canvass" component={Canvass} />
+                <Route path="/animation" component={AnimationView} />
+                <Route path="/update" component={UpdateView} />
+                <Route path="/async" component={AsyncView} />
+                <Route path="/decorator" component={DecoratorView} />
+                <Route path="/context" component={ContextView} />
+                <Route path="/canvas" component={CanvasView} />
+                <Route path="/flowtype" component={FlowtypeView} />
             </Router>
         )
     }
