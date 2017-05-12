@@ -10,12 +10,12 @@ import { Router, Route, hashHistory } from 'react-router';
 
 import Home from './modules/home';
 import Template from './modules/template';
-import Animation from './modules/animation';
-import Update from './modules/update';
-import Async from './modules/async';
-import Decorator from './modules/decorator';
-import Contexts from './modules/contexts';
-import Canvass from './modules/canvass';
+import AnimationView from './modules/animationView';
+import UpdateView from './modules/updateView';
+import AsyncView from './modules/asyncView';
+import DecoratorView from './modules/decoratorView';
+import ContextView from './modules/contextView';
+import CanvasView from './modules/canvasView';
 
 class App extends Component {
     render() {

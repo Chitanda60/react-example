@@ -172,8 +172,8 @@ const asyncfunc = () => {
 }
 asyncfunc()
 
-const Async = () => {
+const AsyncView = () => {
 	return <div>Async</div>
 }
 
-export default Async
+export default AsyncView

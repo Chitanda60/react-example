@@ -18,10 +18,10 @@ Module.contextTypes = {
 	store: PropTypes.object
 }
 
-const Contexts = () => (
+const ContextView = () => (
 	<Provider store = {{name: '夏玲'}}>
 		<Module />
 	</Provider>
 )
 
-export default Contexts
+export default ContextView

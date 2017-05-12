@@ -47,7 +47,7 @@ const leaveSteps = [
     }
 ];
 
-class Animation extends Component {
+class AnimationView extends Component {
 	state = {
 	    to: 100,
 	    list: ['shemei', 'zhixia', 'xiashu']
@@ -111,7 +111,7 @@ class Animation extends Component {
 	}
 }
 
-export default Animation
+export default AnimationView
 
 
 

@@ -1,7 +1,7 @@
 
 import update from 'react-addons-update'
 
-const Update = () => {
+const UpdateView = () => {
 	const oriArray1 = [1, 2, 3]	
 	const newArray1 = update(oriArray1, {$push: [4]})
 	console.log('push')
@@ -35,5 +35,5 @@ const Update = () => {
 	)
 }
 
-export default Update
+export default UpdateView
 
