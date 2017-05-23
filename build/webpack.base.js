@@ -68,7 +68,6 @@ module.exports = {
     presets: ['flow', 'stage-0', 'es2015', 'react'],
     plugins: [
       'transform-class-properties',
-      'transform-async-to-generator',
       'transform-decorators-legacy',
       ['transform-runtime', {
         'regenerator': true
