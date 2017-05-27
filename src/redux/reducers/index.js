@@ -10,8 +10,7 @@ const Reducer = combineReducers({
 	calcReducer,
 	userReducer,
 	formReducer,
-	someReducer,
-	routing
+	someReducer	
 })
 
 /**

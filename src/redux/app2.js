@@ -196,7 +196,7 @@ render(
 // 	render() {
 // 		const {children} = this.props
 
-// 		return Children.only(this.props.children)
+// 		return Children.only(this.props.childrenż
 // 	}
 // }
 // Provider.childContextTypes = {
@@ -204,3 +204,4 @@ render(
 // }
 // // connect生成container时会从context中取出context作为自己的store
 // this.store = props.store || context.store
+

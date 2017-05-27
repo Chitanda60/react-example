@@ -10,7 +10,7 @@ import routes from './routes'
 import DevTools from './containers/DevTools'
 
 const store = configureStore()
-const history = syncHistoryWithStore(hashHistory, store)
+// const history = syncHistoryWithStore(hashHistory, store)
 
 const Root = ({store, history}) => (	
 	<Provider store={store}>
@@ -22,7 +22,7 @@ const Root = ({store, history}) => (
 )
 
 render(
-	<Root store={store} history={history} />,
+	<Root store={store} history={hashHistory} />,
 	document.getElementById('root3')
 )
 

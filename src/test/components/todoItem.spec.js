@@ -5,19 +5,21 @@ import {shallow, render, mount} from 'enzyme'
 
 import TodoItem from './todoItem.js'
 
-describe('<TodoItem />', function() {
+describe('<TodoItem />', () => {
 	const props = {
 		text: '计划',
 		change: jest.fn()
 	}
 
-	it('component\'s text should be \'计划\'', function(){
+	it('component\'s text should be \'计划\'', () => {
 		let todoitem = shallow(<TodoItem {...props} />)
+
 		expect(todoitem.find('h5').text()).toEqual('计划')
 	})
-
-	it('\'change\' should change text', function() {
+	
+	it('\'change\' should be click', () => {
 		let todoitem = mount(<TodoItem {...props} />)
+
 		todoitem.find('h5').simulate('click')
 		expect(props.change).toBeCalled()
 	})

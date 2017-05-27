@@ -1,5 +1,5 @@
 
-import {Component} from 'react'
+import React, {Component} from 'react'
 
 import TodoItem from '../components/todoItem'
 
