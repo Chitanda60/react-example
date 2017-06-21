@@ -23,7 +23,7 @@ window.JSBridge = {
 		let callbackId = msg.callbackId
 
 		let bridgeName = msg.bridgeName
-		let nativeCallbackId = msg.nativeCallbackId
+		let responseId = msg.responseId
 
 		if (callbackId) {
 			// JS调用Native的信息回馈：执行本地回调逻辑
@@ -44,7 +44,7 @@ window.JSBridge = {
 				if (flag) {
 					// 回馈Native调用信息
 					nativeBridge.postMessage({
-						nativeCallbackId: nativeCallbackId,
+						responseId: responseId,
 						ret: ret
 					})
 				}
