@@ -4,19 +4,20 @@
 
 'use strict'
 
-import { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
+import { Component } from 'react'
+import ReactDOM from 'react-dom'
+import { Router, Route, hashHistory } from 'react-router'
 
-import Home from './modules/home';
-import Template from './modules/template';
-import AnimationView from './modules/animationView';
-import UpdateView from './modules/updateView';
-import AsyncView from './modules/asyncView';
-import DecoratorView from './modules/decoratorView';
-import ContextView from './modules/contextView';
-import CanvasView from './modules/canvasView';
-import FlowtypeView from './modules/flowtypeView';
+import Home from './modules/home'
+import Template from './modules/template'
+import AnimationView from './modules/animationView'
+import UpdateView from './modules/updateView'
+import AsyncView from './modules/asyncView'
+import DecoratorView from './modules/decoratorView'
+import ContextView from './modules/contextView'
+import CanvasView from './modules/canvasView'
+import FlowtypeView from './modules/flowtypeView'
+import FetchView from './modules/fetchView'
 
 class App extends Component {
     render() {
@@ -31,13 +32,14 @@ class App extends Component {
                 <Route path="/context" component={ContextView} />
                 <Route path="/canvas" component={CanvasView} />
                 <Route path="/flowtype" component={FlowtypeView} />
+                <Route path="/fetch" component={FetchView} />
             </Router>
         )
     }
 }
 
-const dom = document.getElementById('app');
+const dom = document.getElementById('app')
 if ( dom ) {
-    ReactDOM.render( <App />, dom );
-    console.log('Hello DUI ~ version: 0.1');
+    ReactDOM.render( <App />, dom )
+    console.log('Hello DUI ~ version: 0.1')
 }

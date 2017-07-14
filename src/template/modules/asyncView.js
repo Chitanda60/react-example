@@ -43,49 +43,53 @@ const promise = () => {
 
 	promise.then(() => {
 		console.log('resolve')
-		return new Promise()
-	}).then(() => {
-
+		return 'shemei'
+		// return new Promise()
+	}).then((name) => {
+		console.log(name) //log shemei
 	}).catch(() => {
 		console.log('catched')
 	})
 }
+// promise()
 
 /**
  * Generator
  */
 const generator = () => {
 	console.log('generator')
-// function* AGenerator() {
-// 	yield 'she';
-// 	yield 'mei';
-// 	yield 'hello';
-// 	return {
-// 		1: 'shemei',
-// 		2: 'shemei'
-// 	};
-// }
-// var ag = AGenerator();
-// console.log(ag.next());
-// console.log(ag.next());
-// console.log(ag.next());
-// console.log(ag.next());
-// console.log(ag.next());
-// console.log(ag.next());
 
-// var myIterable = {}
-// myIterable[Symbol.iterator] = function* () {
-// 	yield 'she';
-// 	yield 'mei';
-// 	yield 'zhi';
-// 	yield 'xia';
-// 	return 'haha';
-// }
+	// function* AGenerator() {
+	// 	yield 'she';
+	// 	yield 'mei';
+	// 	yield 'hello';
+		
+	// 	return {
+	// 		1: 'shemei',
+	// 		2: 'shemei'
+	// 	};
+	// }
+	// var ag = AGenerator();
+	// console.log(ag.next());
+	// console.log(ag.next());
+	// console.log(ag.next());
+	// console.log(ag.next());
+	// console.log(ag.next());
+	// console.log(ag.next());
 
-// console.log([...myIterable])
+	// var myIterable = {}
+	// myIterable[Symbol.iterator] = function* () {
+	// 	yield 'she';
+	// 	yield 'mei';
+	// 	yield 'zhi';
+	// 	yield 'xia';
+	// 	return 'haha';
+	// }
 
-function* AGenerator() {
-	try {
+	// console.log([...myIterable])
+
+	function* AGenerator() {
+		try {
 			yield 'she'
 			yield 'shr'
 			yield 'shy'
@@ -100,26 +104,26 @@ function* AGenerator() {
 		yield 'zhi'
 		yield 'xia'
 	}
-	// var ag = AGenerator()
-	// // console.log([...ag])
-	// console.log(ag.next())		
-	// // try {
-	// // 	ag.throw('a')
-	// // } catch(error) {
-	// // 	console.log('外部捕获:' + error)
-	// // }
-	// console.log(ag.next())
-	// console.log(ag.return('over'))
+	var ag = AGenerator()
 	// console.log([...ag])
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
-	// console.log(ag.next())
+	console.log(ag.next())		
+	// try {
+	// 	ag.throw('a')
+	// } catch(error) {
+	// 	console.log('外部捕获:' + error)
+	// }
+	console.log(ag.next())
+	console.log(ag.return('over'))
+	console.log([...ag])
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
+	console.log(ag.next())
 
 	// var a = {}
 	// a[Symbol.iterator] = function() {
@@ -135,14 +139,17 @@ function* AGenerator() {
 	// }
 	// console.log([...a])
 
-	function* BGenerator () {
-		yield console.log('she')
-		yield console.log('mei')
-	}
-	var bg = BGenerator()
-	bg.next()
-	bg.next()
+	// function* BGenerator () {
+	// 	yield console.log('she')
+	// 	yield console.log('mei')
+	// }
+	// var bg = BGenerator()
+	// bg.next()
+	// bg.next()
+
 }
+
+// generator()
 
 /**
  * async function
@@ -170,7 +177,7 @@ const asyncfunc = () => {
 		console.log(data)
 	})
 }
-asyncfunc()
+// asyncfunc()
 
 const AsyncView = () => {
 	return <div>Async</div>
