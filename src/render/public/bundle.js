@@ -21551,7 +21551,6 @@
 
 	var Template1 = __webpack_require__(326);
 	var Template2 = __webpack_require__(350);
-	var Layout = __webpack_require__(351);
 
 	var Iso = function (_React$Component) {
 		(0, _inherits3.default)(Iso, _React$Component);
@@ -21570,7 +21569,7 @@
 				var _props = this.props,
 				    mydata = _props.mydata,
 				    isServer = _props.isServer;
-				// const tip = isServer ? 'Server Render' : 'Client Render'		
+
 
 				return function (_React$Component2) {
 					(0, _inherits3.default)(_class, _React$Component2);
@@ -21612,7 +21611,7 @@
 					{ history: isServer ? (0, _reactRouter.createMemoryHistory)(path || '/') : _reactRouter.browserHistory },
 					React.createElement(
 						_reactRouter.Route,
-						{ path: path || '/', component: this.wrapComponent(LayoutView) },
+						{ path: path || '/', component: LayoutView },
 						React.createElement(_reactRouter.IndexRoute, { component: this.wrapComponent(matchComponent(path)) }),
 						React.createElement(_reactRouter.Route, { path: '/home', component: Template1 }),
 						React.createElement(_reactRouter.Route, { path: '/card', component: Template2 })
@@ -21641,7 +21640,7 @@
 	var LayoutView = function LayoutView(props) {
 		return React.createElement(
 			'div',
-			null,
+			{ id: 'container' },
 			props.children
 		);
 	};
@@ -30642,78 +30641,6 @@
 	}();
 
 	module.exports = Template2;
-
-/***/ },
-/* 351 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _getPrototypeOf = __webpack_require__(218);
-
-	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
-
-	var _classCallCheck2 = __webpack_require__(223);
-
-	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
-
-	var _createClass2 = __webpack_require__(224);
-
-	var _createClass3 = _interopRequireDefault(_createClass2);
-
-	var _possibleConstructorReturn2 = __webpack_require__(228);
-
-	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
-
-	var _inherits2 = __webpack_require__(263);
-
-	var _inherits3 = _interopRequireDefault(_inherits2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var React = __webpack_require__(1);
-
-	var Iso = __webpack_require__(178);
-
-	var Layout = function (_React$Component) {
-		(0, _inherits3.default)(Layout, _React$Component);
-
-		function Layout(props) {
-			(0, _classCallCheck3.default)(this, Layout);
-			return (0, _possibleConstructorReturn3.default)(this, (Layout.__proto__ || (0, _getPrototypeOf2.default)(Layout)).call(this, props));
-		}
-
-		(0, _createClass3.default)(Layout, [{
-			key: 'render',
-			value: function render() {
-				var children = this.props.children;
-
-
-				return React.createElement(
-					'html',
-					null,
-					React.createElement(
-						'head',
-						null,
-						React.createElement(
-							'title',
-							null,
-							'Render'
-						)
-					),
-					React.createElement(
-						'body',
-						null,
-						children,
-						React.createElement('script', { src: '/public/bundle.js' })
-					)
-				);
-			}
-		}]);
-		return Layout;
-	}(React.Component);
-
-	module.exports = Layout;
 
 /***/ }
 /******/ ]);

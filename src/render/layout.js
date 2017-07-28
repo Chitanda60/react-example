@@ -1,8 +1,6 @@
 
 const React = require('react')
 
-const Iso = require('./iso.js')
-
 class Layout extends React.Component {
 	constructor(props) {
 		super(props)		

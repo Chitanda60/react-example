@@ -6,7 +6,6 @@ import {Router, Route, IndexRoute, browserHistory, createMemoryHistory, match, R
 
 const Template1 = require('./components/template1.js')
 const Template2 = require('./components/template2.js')
-const Layout = require('./layout')
 
 class Iso extends React.Component {
 	constructor(props) {
@@ -16,7 +15,6 @@ class Iso extends React.Component {
 	// 注入服务端传入的props
 	wrapComponent(Comp) {
 		const {mydata, isServer} = this.props		
-		// const tip = isServer ? 'Server Render' : 'Client Render'		
 
 		return class extends React.Component {
 			constructor(props) {
@@ -39,7 +37,7 @@ class Iso extends React.Component {
 
 		return (
 			<Router history={isServer ? createMemoryHistory(path || '/') : browserHistory}>
-				<Route path={path || '/'} component={this.wrapComponent(LayoutView)}>
+				<Route path={path || '/'} component={LayoutView}>
 					<IndexRoute component={this.wrapComponent(matchComponent(path))}></IndexRoute>
 					<Route path='/home' component={Template1}></Route>
 					<Route path='/card' component={Template2}></Route>
@@ -65,7 +63,7 @@ const matchComponent = (path) => {
 }
 
 const LayoutView = (props) => {
-	return <div>{props.children}</div>
+	return <div id='container'>{props.children}</div>
 }
 
 module.exports = Iso
