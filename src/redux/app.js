@@ -14,7 +14,7 @@ const SET_NAME = 'SET_NAME'
 
 // action
 const fetchData = new Promise((resolve, reject) => {
-	if (true) {
+  	if (true) {
 		setTimeout(() => resolve({data: 'RESOLVE'}), 3000)
 	} else {
 		setTimeout(() => reject({data: 'REJECT'}), 3000)

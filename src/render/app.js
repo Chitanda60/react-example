@@ -10,12 +10,12 @@ const Iso = require('./iso.js')
 
 const dom = document.getElementById('root')
 
-const getServerData = (key) => {
-	return JSON.parse(dom.getAttribute(`data-${key}`))
+ getServerData = (key) => {
+  return JSON.parse(dom.getAttribute(`data-${key}`))
 }
 
 // 获得服务端渲染数据
 const microdata = getServerData('microdata')
 const mydata = getServerData('mydata')
 
-ReactDOM.render(<Iso microdata={microdata} mydata={mydata} isServer={false} />, dom);
+ReactDOM.render(<Iso microdata={microdata} mydata={mydata} isServer={false} />, dom)

@@ -57,12 +57,12 @@ const App = () => {
 		presets: ['stage-0', 'es2015', 'react'],
 		extensions: ['.js'],
 		plugins: [
-	      'transform-class-properties',
-	      'transform-async-to-generator',
-	      'transform-decorators-legacy',
-	      ['transform-runtime', {
-	        'regenerator': true
-	      }]
+	    	'transform-class-properties',
+	    	'transform-async-to-generator',
+	    	'transform-decorators-legacy',
+	    	['transform-runtime', {
+	    		'regenerator': true
+	    	}]
 	    ]
 	})
 
