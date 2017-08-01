@@ -6,11 +6,9 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
 
-const Iso = require('./iso.js')
-
 const dom = document.getElementById('root')
 
- getServerData = (key) => {
+const getServerData = (key) => {
   return JSON.parse(dom.getAttribute(`data-${key}`))
 }
 
