@@ -1,11 +1,6 @@
 
-const Test_type = () => {
-    return <div>测试</div>
-}
 
-export {
-    Test_type
-}
+
 
 
 
