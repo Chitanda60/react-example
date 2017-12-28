@@ -41,5 +41,4 @@ class App extends Component {
 const dom = document.getElementById('app')
 if ( dom ) {
     ReactDOM.render( <App />, dom )
-    console.log('Hello DUI ~ version: 0.1')
 }
